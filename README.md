@@ -46,12 +46,9 @@ These numbers are not from Render. Re-measure on the deployed instance before la
 
 ## Deploy on Render
 
-`render.yaml` defines two services:
+`render.yaml` deploys **`dot-arena`**, a web service (Node, Singapore). It uses health check `/healthz` and auto-deploys only after CI passes. The prototype runs on the free plan, which sleeps after 15 idle minutes, so the first visit can take about a minute.
 
-- **`dot-arena`**: a web service (Node, Singapore). It uses health check `/healthz` and auto-deploys only after CI passes.
-- **`dot-arena-recap`**: a **Render Workflow** service. Task `sessionRecap` fans out one `analyzeRound` run per round, then builds the card.
-
-Set `RENDER_API_KEY` on the web service so it can trigger the workflow. Without the key, the recap runs in-process and the page says which path ran.
+The recap is written for a **Render Workflow** (`workflows/index.js`): task `sessionRecap` fans out one `analyzeRound` run per round, then builds the card. It was tested with `render workflows dev`. The commented block in `render.yaml` turns it on, together with a paid plan for launch. Until then, the recap runs in-process and the recap page says which path ran.
 
 ## Project layout
 
