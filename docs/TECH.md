@@ -38,7 +38,7 @@ Next steps on the same workflow: an LLM-written video script from the headlines,
 
 | Load | Plan |
 |---|---|
-| Up to ~5K concurrent players | One instance. Measured locally: 5,000 WebSocket players, round result p99 185 ms, heap 56 MB. |
+| Up to ~5K concurrent players | One instance. Measured locally: 5,000 WebSocket players, round result p99 185 ms, heap 56 MB. On the live Render free plan: 1,000 players, p99 1.29 s. |
 | One room above one instance | Shard by room code. Each room lives on exactly one instance, and Render Key Value pub/sub fans broadcasts out to the sockets on other instances. Not built yet. |
 | Many rooms | Horizontal autoscaling on CPU. Sticky routing by room code. |
 
@@ -59,5 +59,5 @@ The `MAX_ROOMS` (env) and 5,000-players-per-room limits protect one instance fro
 ## Known gaps
 
 - Rooms are in memory. A restart during a live show ends that room. Snapshotting to Key Value is the fix.
-- The 5K figure is from a laptop. Render Starter has less CPU, so re-run `scripts/load.js` against the deployed URL before a promoted show.
+- The 5K figure is from a laptop. On the live Render free instance, 1,000 players gave a round result p99 of 1.29 s, measured from Seoul. Re-run `scripts/load.js` on the paid instance before a promoted show.
 - No anti-multi-tab protection yet beyond rate limits.

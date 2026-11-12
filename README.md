@@ -2,6 +2,8 @@
 
 **Watching the Shorts game → playing it.** A live party-game room where a creator hosts and thousands of viewers join from their phones with a 6-digit code. No install, no account.
 
+**Live demo:** https://dot-arena-0so3.onrender.com (host screen at `/host`, players at `/play`). It runs on Render's free plan, so the first visit after idle can take about 50 seconds.
+
 Built for **GodDot (디네임, @d_name0)** at *Hack the Audience 2026* (Extriver, Nov 5 – Dec 5).
 
 > 보던 쇼츠 게임, 이제 같이 한다 — 진행자가 방을 열면 시청자 수천 명이 폰으로 같은 판에 들어오는 라이브 심리 게임.
@@ -42,7 +44,14 @@ Measured on a laptop (Apple Silicon, server and bots on the same machine):
 | 2,000 | 0.7 s | 39 ms | 89 ms |
 | 5,000 | 3.3 s | 103 ms | 185 ms |
 
-These numbers are not from Render. Re-measure on the deployed instance before launch.
+Measured on the live Render deployment (free plan, Singapore), with the bots running from Seoul over the internet:
+
+| Players | Join all | Answer ack p99 | Round result p99 |
+|---|---|---|---|
+| 200 | 2.0 s | 308 ms | 468 ms |
+| 1,000 | 8.9 s | 726 ms | 1.29 s |
+
+The free instance has 0.1 CPU. A paid instance is planned for promoted shows.
 
 ## Deploy on Render
 
