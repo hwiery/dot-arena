@@ -1,0 +1,20 @@
+{
+  "name": "dot-arena",
+  "version": "0.1.0",
+  "description": "Live audience party games for GodDot's viewers: a host screen plus thousands of phones in one round.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/*.test.js",
+    "load": "node scripts/load.js"
+  },
+  "dependencies": {
+    "@renderinc/sdk": "^1.8.0",
+    "ws": "^8.18.0"
+  }
+}

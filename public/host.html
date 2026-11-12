@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dot Arena — 진행자</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="row" style="justify-content:space-between">
+    <div class="brand"><i></i>Dot Arena</div>
+    <div class="muted">참가: <b id="joinUrl"></b></div>
+  </div>
+
+  <div class="host-grid" style="margin-top:16px">
+    <div class="grid">
+      <div class="panel">
+        <div class="row" style="justify-content:space-between">
+          <div>
+            <div class="muted">방 코드</div>
+            <div class="big code" id="code">······</div>
+          </div>
+          <div style="text-align:right">
+            <div class="muted">참가자</div>
+            <div class="big display" id="count">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="stage">
+        <div class="row" style="justify-content:space-between">
+          <h2 id="title" style="margin:0">대기 중</h2>
+          <div class="timer hide" id="timer"></div>
+        </div>
+        <p id="rule" class="muted">아래에서 게임을 고르면 라운드가 시작됩니다.</p>
+        <div id="progress" class="hide">
+          <div class="muted" id="answered"></div>
+          <div class="bar"><i id="answeredBar" style="width:0"></i></div>
+        </div>
+        <div id="result"></div>
+      </div>
+
+      <div class="panel">
+        <div class="row">
+          <button data-game="greed">욕심 게임</button>
+          <button data-game="trust" class="sky">신뢰 게임</button>
+          <button data-game="lowest" class="sky">유일한 최소 숫자</button>
+          <button data-game="jamo" class="lava">금지 자음</button>
+        </div>
+        <div class="row" style="margin-top:14px">
+          <label style="margin:0">제한 시간</label>
+          <input id="secs" type="number" min="10" max="60" value="20" style="width:90px">
+          <span class="muted">초</span>
+          <button class="alt" id="end">지금 마감</button>
+          <button class="alt" id="bots">봇 50명 추가</button>
+          <button class="alt" id="recap">방송 리캡 만들기</button>
+          <a id="recapLink" class="hide" target="_blank">리캡 보기 →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 style="margin-top:0">순위</h2>
+      <ol class="lb" id="lb"></ol>
+    </div>
+  </div>
+</div>
+<script type="module" src="/host.js"></script>
+</body>
+</html>

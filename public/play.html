@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Dot Arena — 참가</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap narrow">
+  <div class="row" style="justify-content:space-between">
+    <div class="brand"><i></i>Dot Arena</div>
+    <div class="muted" id="me"></div>
+  </div>
+
+  <form class="panel hide" id="joinForm" style="margin-top:16px">
+    <label for="code">방 코드</label>
+    <input id="code" inputmode="numeric" maxlength="6" required>
+    <label for="name">닉네임</label>
+    <input id="name" maxlength="12" required>
+    <p><button style="width:100%">입장</button></p>
+  </form>
+
+  <div id="game" class="hide" style="margin-top:16px">
+    <div class="panel">
+      <div class="row" style="justify-content:space-between">
+        <h2 id="title" style="margin:0">대기 중</h2>
+        <div class="timer hide" id="timer"></div>
+      </div>
+      <p id="rule" class="muted">진행자가 게임을 시작하면 여기에 나옵니다.</p>
+      <div id="input"></div>
+      <div id="result" class="result"></div>
+    </div>
+    <div class="panel" style="margin-top:16px">
+      <div class="row" style="justify-content:space-between">
+        <div><div class="muted">내 점수</div><div class="big display" id="score">0</div></div>
+        <div style="text-align:right"><div class="muted">순위</div><div class="big display" id="rank">-</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="/play.js"></script>
+</body>
+</html>

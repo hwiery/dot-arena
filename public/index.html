@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dot Arena — 보던 쇼츠 게임, 이제 같이 한다</title>
+<meta name="description" content="크리에이터가 진행하고 수천 명이 폰으로 동시에 참가하는 라이브 심리 게임">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><i></i>Dot Arena</div>
+  <section class="hero">
+    <h1>보던 쇼츠 게임,<br>이제 <span style="color:var(--gem)">같이</span> 한다</h1>
+    <p class="muted">진행자가 방을 열면 시청자 수천 명이 폰으로 같은 판에 들어옵니다. 설치도, 가입도 없이 6자리 코드만 있으면 됩니다.</p>
+  </section>
+
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <form class="panel" id="join" action="/play">
+      <h2 style="margin:0">참가하기</h2>
+      <label for="code">방 코드</label>
+      <input id="code" name="code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="123456" required>
+      <label for="name">닉네임</label>
+      <input id="name" name="name" maxlength="12" placeholder="최대 12자" required>
+      <p><button type="submit" style="width:100%">입장</button></p>
+    </form>
+    <div class="panel">
+      <h2 style="margin:0">진행하기</h2>
+      <p class="muted">방송 화면이나 TV에 띄울 진행자 화면을 엽니다. 방 코드가 바로 만들어집니다.</p>
+      <p><a class="btn" href="/host" style="width:100%">방 만들기</a></p>
+    </div>
+  </div>
+
+  <h2 style="margin-top:40px">게임 4종</h2>
+  <div class="cards">
+    <div class="panel"><h3>욕심 게임</h3><p class="muted">모두의 합이 한도를 넘으면 전원 0점. 얼마나 가져갈까?</p></div>
+    <div class="panel"><h3>신뢰 게임</h3><p class="muted">모르는 짝과 나눌까, 독식할까?</p></div>
+    <div class="panel"><h3>유일한 최소 숫자</h3><p class="muted">아무도 안 고른 가장 작은 숫자를 찾아라.</p></div>
+    <div class="panel"><h3>금지 자음</h3><p class="muted">ㄹ 없이 "좋아하는 음식"을 말해 봐.</p></div>
+  </div>
+  <p class="muted" style="margin-top:32px;font-size:13px">점수만 걸립니다. 돈이나 유료 참가비는 없습니다. Hack the Audience 2026 프로토타입 · <a href="/healthz">status</a></p>
+</div>
+</body>
+</html>

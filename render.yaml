@@ -1,0 +1,26 @@
+# Render Blueprint: the live game server plus the recap workflow.
+services:
+  - type: web
+    name: dot-arena
+    runtime: node
+    region: singapore        # closest Render region to Korean viewers
+    plan: starter
+    buildCommand: npm ci
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    autoDeployTrigger: checksPass   # deploy only after GitHub Actions passes
+    maxShutdownDelaySeconds: 30
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: RECAP_TASK
+        value: dot-arena-recap/sessionRecap
+      - key: RENDER_API_KEY   # set in the dashboard; never committed
+        sync: false
+
+  - type: workflow
+    name: dot-arena-recap
+    runtime: node
+    region: singapore
+    buildCommand: npm ci
+    startCommand: node workflows/index.js
